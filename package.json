@@ -1,0 +1,42 @@
+{
+  "name": "vb-consultoria",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .vue,.js,.ts",
+    "lint:fix": "eslint . --ext .vue,.js,.ts --fix",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^4.4.1",
+    "axios": "^1.7.8",
+    "body-parser": "^1.20.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "openai": "^4.73.1",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "eslint": "^9.15.0",
+    "typescript": "~5.6.2",
+    "vite": "^6.0.0",
+    "vue-tsc": "^2.1.10"
+  },
+  "description": "Projeto VB Consultoria com Vue 3, TypeScript e Vite. Inclui integração com APIs, design moderno e funcionalidade ESG.",
+  "main": "index.js",
+  "keywords": [
+    "vue",
+    "typescript",
+    "vite",
+    "esg",
+    "consultoria"
+  ],
+  "author": "Seu Nome",
+  "license": "ISC"
+}
