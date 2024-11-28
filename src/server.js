@@ -1,41 +1,46 @@
-const express = require("express");
-const axios = require("axios");
-const bodyParser = require("body-parser");
+// server.js
+const express = require('express');
+const axios = require('axios');
+require('dotenv').config();
+
 const app = express();
 const port = 5000;
 
-// Configuração do corpo da requisição
-app.use(bodyParser.json());
+// Middleware para ler o corpo das requisições
+app.use(express.json());
 
-// Rota para processar perguntas e enviar ao OpenAI
-app.post("/gpt", async (req, res) => {
+// Rota para receber a pergunta e consultar a API da OpenAI
+app.post('/gpt', async (req, res) => {
   const { question } = req.body;
 
-  try {
-    // Chave da sua API do OpenAI
-    const openaiApiKey = "YOUR_OPENAI_API_KEY";
+  if (!question) {
+    return res.status(400).json({ error: 'A pergunta é obrigatória.' });
+  }
 
-    // Requisição para o modelo GPT-3 da OpenAI
+  try {
+    // Fazendo a requisição para a API da OpenAI
     const response = await axios.post(
-      "https://api.openai.com/v1/completions",
+      'https://api.openai.com/v1/completions',
       {
-        model: "text-davinci-003", // Modelo GPT-3
-        prompt: `Pergunta sobre ESG: ${question}`,
+        model: 'text-davinci-003',
+        prompt: question,
         max_tokens: 150,
         temperature: 0.7,
       },
       {
         headers: {
-          "Authorization": `Bearer ${openaiApiKey}`,
+          'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
         },
       }
     );
 
-    // Retorna a resposta do OpenAI
-    res.json({ answer: response.data.choices[0].text.trim() });
+    const answer = response.data.choices[0].text.trim();
+
+    // Retorna a resposta da OpenAI
+    res.json({ answer });
   } catch (error) {
-    console.error("Erro ao obter resposta da OpenAI:", error);
-    res.status(500).send("Erro ao obter resposta.");
+    console.error('Erro ao chamar a API da OpenAI:', error);
+    res.status(500).json({ error: 'Ocorreu um erro ao obter a resposta.' });
   }
 });
 

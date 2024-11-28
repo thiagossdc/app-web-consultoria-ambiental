@@ -27,20 +27,17 @@ import Footer from './components/Footer.vue';
   box-sizing: border-box;
 }
 
-/* Estilo do logo */
 .logo {
   width: 100%;
   margin-right: 20px;
 }
 
-/* Navbar flutuante */
 header>.floating-navbar {
   flex-grow: 1;
   display: flex;
   justify-content: flex-end;
 }
 
-/* Conteúdo principal */
 .content {
   flex-grow: 1;
   display: flex;
@@ -54,7 +51,6 @@ header>.floating-navbar {
   margin: 20px;
 }
 
-/* Ajustes gerais para evitar espaços indesejados */
 body,
 html {
   margin: 0;
@@ -64,7 +60,6 @@ html {
   background-color: #f5f7fa;
 }
 
-/* Melhorias de acessibilidade e interação */
 header:hover {
   background-color: #f3f4f6;
 }

@@ -1,7 +1,6 @@
 <template>
   <div class="contact">
     <div class="contact-container">
-      <!-- Card de Contato -->
       <div class="contact-card">
         <h1>Contato</h1>
         <form @submit.prevent="sendEmail">
@@ -106,9 +105,9 @@ const sendEmail = async () => {
   padding: 20px;
   width: 100%;
   min-height: 100vh;
-  background-color: #f4f4f4; /* Cor de fundo mais clara */
+  background-color: #f4f4f4; 
   box-sizing: border-box;
-  overflow: hidden; /* Impede o scroll vertical */
+  overflow: hidden; 
 }
 
 .contact-container {
@@ -119,7 +118,7 @@ const sendEmail = async () => {
 }
 
 .contact-card {
-  background-color: #fafafa; /* Cor clara de fundo para o card */
+  background-color: #fafafa; 
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   padding: 20px;
@@ -129,11 +128,10 @@ const sendEmail = async () => {
   margin-right: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Card mais próximo ao topo */
+  justify-content: flex-start; 
   height: auto;
-  max-height: 80vh; /* Limita a altura máxima para evitar scroll */
-  overflow-y: auto; /* Habilita o scroll apenas no conteúdo interno, se necessário */
-}
+  max-height: 80vh; 
+  overflow-y: auto; 
 
 .form-group {
   margin-bottom: 12px;
